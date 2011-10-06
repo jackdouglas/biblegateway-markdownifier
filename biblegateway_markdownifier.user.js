@@ -42,13 +42,13 @@ $(document).ready(function() {
     };
 
     // answer template
-    var markdownTemplate = "> {3} <sub>&nbsp;&nbsp;[**{0} {1}**]({2})</sub>";
+    var markdownTemplate = "> {3}<sub>&nbsp;&nbsp;[{1}]({2})</sub>";
 
     var $textarea = $('<textarea rows="25" cols="80" class="markdown-export"></textarea>');
 
     var passage = $("div.heading.passage-class-0 > h3").text();
     var translation = $("div.heading.passage-class-0 > p.txt-sm").text();
-    var translation_abbr = /\([^)]*\)/.exec(translation);
+    var translation_abbr = /\([^)]*\)/.exec(translation).replace('(','').replace(')','');
 
     var $text = $("div.result-text-style-normal").clone();
 
@@ -57,7 +57,7 @@ $(document).ready(function() {
             function(i, matcher) {
         $text.find(matcher).remove();
     });
-    $text.find('sup').removeAttr('class').removeAttr('id').after(' ');
+    $text.find('sup').removeAttr('class').removeAttr('id');
     $text.contents().filter(function() {
         return this.nodeType == 8;
     }).remove();
@@ -73,8 +73,8 @@ $(document).ready(function() {
     // change &nbsp; before verse number to normal space
     text = text.replace(/&nbsp;<sup>/gi, ' <sup>');
 
-    var lines = text.split('\n');
-    text = lines.join('  \n> ');
+    //var lines = text.split('\n');
+    //text = lines.join('  \n> ');
 
     // generate the complete markdown
     var markdown = markdownTemplate.format(
