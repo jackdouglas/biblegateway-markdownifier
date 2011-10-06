@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           BibleGateway markdownifier
-// @namespace      http://github.com/dancek
+// @namespace      http://github.com/jackdouglas
 // @description    Create copypasteable markdown from BibleGateway passages
 // @include        http://www.biblegateway.com/passage/*
 // @version        0.1.2
@@ -42,7 +42,7 @@ $(document).ready(function() {
     };
 
     // answer template
-    var markdownTemplate = "> [**{0} {1}**]({2}) {3}";
+    var markdownTemplate = "> {3} <sub>&nbsp;&nbsp;[**{0} {1}**]({2})</sub>";
 
     var $textarea = $('<textarea rows="25" cols="80" class="markdown-export"></textarea>');
 
