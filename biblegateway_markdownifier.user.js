@@ -48,7 +48,7 @@ $(document).ready(function() {
 
     var passage = $("div.heading.passage-class-0 > h3").text();
     var translation = $("div.heading.passage-class-0 > p.txt-sm").text();
-    var translation_abbr = /\([^)]*\)/.exec(translation).replace('(','').replace(')','');
+    var translation_abbr = /\([^)]*\)/.exec(translation)[0].replace('(','').replace(')','');
 
     var $text = $("div.result-text-style-normal").clone();
 
