@@ -72,6 +72,8 @@ $(document).ready(function() {
     text = text.replace(/<\/?span[^>]*>/gi, '');
     // change &nbsp; before verse number to normal space
     text = text.replace(/&nbsp;<sup>/gi, ' <sup>');
+    text = text.replace(/^\s/, '');
+    text = text.replace(/\s$/, '');
 
     //var lines = text.split('\n');
     //text = lines.join('  \n> ');
