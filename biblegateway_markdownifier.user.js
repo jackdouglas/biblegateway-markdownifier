@@ -75,8 +75,8 @@ $(document).ready(function() {
     text = text.replace(/^\s/, '');
     text = text.replace(/\s$/, '');
 
-    //var lines = text.split('\n');
-    //text = lines.join('  \n> ');
+    var lines = text.split('\n');
+    text = lines.join('  \n> ');
 
     // generate the complete markdown
     var markdown = markdownTemplate.format(
