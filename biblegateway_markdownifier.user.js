@@ -50,7 +50,7 @@ $(document).ready(function() {
     var translation = $("div.heading.passage-class-0 > p.txt-sm").text().replace(/^\s/, '');
     var translation_abbr = /\([^)]*\)/.exec(translation)[0].replace('(','').replace(')','');
 
-    var $text = $("div.result-text-style-normal").clone();
+    var $text = $("div.result-text-style-normal *:first-child").clone();
 
     // remove unnecessary stuff
     $.each(['div', 'sup.xref', 'sup.footnote', 'h3', 'h4', 'h5'],
@@ -92,4 +92,3 @@ $(document).ready(function() {
     
     $("div.passage-left").append($textarea);
 });
-
